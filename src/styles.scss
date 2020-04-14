@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/_fonts.scss';
+
+$primary_font: 'FontAwesome';
+
+$thin:100;
+$light:300;
+$regular:400;
+$bold:700;
+$black:900;
+
+$font-xs:12px;
+$font-sm: 14px;
+$primary-fs: 16px;
+$font-md: 18px;
+$font-lg: 20px;
+
+//body {
+//    font-family: $primary_font;
+//    font-size: $primary-fs;
+//    font-weight: $regular;
+//}
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border-color: #eae3e3;
+}

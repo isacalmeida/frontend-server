@@ -24,9 +24,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap-css-only/css/bootstrap.min.css",
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/prismjs/themes/prism-tomorrow.css",
+              "node_modules/admin-lte-css/dist/css/AdminLTE.css",
+              "node_modules/admin-lte-css/dist/css/skins/skin-blue.css",
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/ionicons/dist/ionicons/ionicons.js",
+              "node_modules/ionicons/dist/ionicons/ionicons.esm.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-typescript.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -88,7 +98,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
