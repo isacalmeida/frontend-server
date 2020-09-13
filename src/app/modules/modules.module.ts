@@ -9,11 +9,22 @@ import { SharedModule } from './shared/shared.module';
 
 import { IndexComponent } from './index/index.component';
 
+export const modules = [
+  AcessoModule,
+  CommonModule,
+  CoreModule,
+  PessoaModule,
+  ServicesModule,
+  SharedModule
+];
+
+export const declarations = [
+  IndexComponent
+];
+
 @NgModule({
-  declarations: [IndexComponent],
-  exports: [IndexComponent, AcessoModule, CoreModule, PessoaModule, ServicesModule, SharedModule],
-  imports: [
-    CommonModule, CoreModule, AcessoModule, PessoaModule, ServicesModule, SharedModule
-  ]
+  declarations: [ declarations ],
+  exports: [ modules, declarations ],
+  imports: [ modules ]
 })
 export class ModulesModule { }

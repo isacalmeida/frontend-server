@@ -10,6 +10,8 @@ import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 
 import { adminPageConf } from './admin-page.conf';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +23,8 @@ import { adminPageConf } from './admin-page.conf';
     LayoutModule.forRoot(adminPageConf),
     LoadingPageModule,
     MaterialBarModule,
-    ModulesModule
+    ModulesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
