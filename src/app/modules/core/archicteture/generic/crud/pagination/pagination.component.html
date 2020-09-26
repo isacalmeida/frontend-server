@@ -1,0 +1,32 @@
+<div *ngIf="page" class="row">
+	<div class="col-xs-2">
+		Elements per page:
+	</div>
+	<div class="col-xs-1">
+		<div class="dropdown">
+			<button aria-expanded="false" aria-haspopup="true" class="btn btn-default dropdown-toggle"
+				data-toggle="dropdown" type="button" id="pageSize">
+				{{page.size}}
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="pageSize" style="display: block;">
+				<li><a [routerLink]="" (click)="updatePageSize(1)">1</a></li>
+				<li><a [routerLink]="" (click)="updatePageSize(5)">5</a></li>
+				<li><a [routerLink]="" (click)="updatePageSize(10)">10</a></li>
+				<li><a [routerLink]="" (click)="updatePageSize(20)">20</a></li>
+				<li><a [routerLink]="" (click)="updatePageSize(50)">50</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-xs-4">
+		<span>
+			Shows {{page.numberOfElements}} of {{page.totalElements}}
+		</span>
+		<a [routerLink]="" class="btn btn-flat" [ngClass]="{'disabled': page.first }" (click)="previousPage()">
+			<span class="fa fa-chevron-left"></span>
+		</a>
+		<a [routerLink]="" class="btn btn-flat" [ngClass]="{'disabled': page.last }" (click)="nextPage()">
+			<span class="fa fa-chevron-right"></span>
+		</a>
+	</div>
+</div>

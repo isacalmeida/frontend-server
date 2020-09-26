@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MenuDTO } from '../../shared/architecture/menu/menu.dto';
 
 @Component({
   selector: 'app-menu-acesso',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuAcessoComponent implements OnInit {
 
+  @Input()
+  menus: Array<MenuDTO>;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.preencherMenu();
   }
 
+  preencherMenu() {
+    this.menus = [
+
+    ];
+  }
 }

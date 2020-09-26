@@ -1,0 +1,15 @@
+<div *ngIf="isFormulario">
+	<app-form
+	></app-form>
+</div>
+<div *ngIf="!isFormulario">
+	<app-list 
+		[service]="service"
+		[sortColumns]="sortColumns"
+		[columns]="columns"
+		[filterField]="filterField"
+		[disableEdit]="disableEdit"
+		[disableRemove]="disableRemove"
+		[pageOptions]="pageOptions"
+	></app-list>
+</div>

@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
-import { MenuPessoaComponent } from './menu-pessoa/menu-pessoa.component';
-import { PessoaFisicaComponent } from './pessoas/pessoa-fisica/pessoa-fisica.component';
+import { CoreModule } from 'src/app/modules/core/core.module';
+import { PessoaComponent } from './pessoa.component';
+import { PessoaRoutingModule } from './pessoa-routing.module';
+
+const declarations = [
+  PessoaComponent
+];
+
+const imports = [
+  CommonModule,
+  CoreModule,
+  PessoaRoutingModule
+];
 
 @NgModule({
-  declarations: [MenuPessoaComponent, PessoaFisicaComponent],
-  imports: [
-    CommonModule,
-    HttpClientModule
-  ]
+  declarations: [ declarations ],
+  imports: [ imports ]
 })
 export class PessoaModule { }

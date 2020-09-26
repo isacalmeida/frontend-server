@@ -1,0 +1,12 @@
+<p-card>
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" *ngFor="let menu of menus">
+			<a [routerLink]="[menu.url]">
+				<mk-box-small backgroundColor="green" iconStyleClass="{{menu.icone}}">
+					<mk-box-small-header>{{menu.titulo}}</mk-box-small-header>
+					<mk-box-small-content>{{menu.descricao}}</mk-box-small-content>
+				</mk-box-small>
+			</a>
+		</div>
+	</div>
+</p-card>

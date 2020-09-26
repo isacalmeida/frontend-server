@@ -1,4 +1,4 @@
-import { AbstractDTO } from '../../architecture/abstract-dto';
+import { AbstractDTO } from '../../architecture/common/abstract.dto';
 
 export class TipoContatoDTO extends AbstractDTO {
 }

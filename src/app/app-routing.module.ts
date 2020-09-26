@@ -1,62 +1,31 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './modules/index/index.component';
-import { MenuPessoaComponent } from './modules/pessoa/menu-pessoa/menu-pessoa.component';
-import { MenuAcessoComponent } from './modules/acesso/menu-acesso/menu-acesso.component';
-import { PessoaFisicaComponent } from './modules/pessoa/pessoas/pessoa-fisica/pessoa-fisica.component';
 
-
-const routes: Routes = [
-  {
+const routes: Routes = [{
+  path: '',
+  data: {
+    title: 'Dashboard'
+  },
+  children: [{
     path: '',
-    data: {
-        title: 'Dashboard'
-    },
-    children: [
-      {
-        path: '',
-        component: IndexComponent
-      }
-    ]
+    component: IndexComponent
+  }]
+}, {
+  path: 'acesso',
+  data: {
+    title: 'Menu',
+    description: 'Acesso'
   },
-  {
-    path: 'menu',
-    data: {
-      title: 'Menu'
-    },
-    children: [
-      {
-        path: 'acesso',
-        data: {
-          title: 'Acesso'
-        },
-        component: MenuAcessoComponent
-      },
-      {
-        path: 'pessoa',
-        data: {
-          title: 'Pessoa'
-        },
-        component: MenuPessoaComponent
-      }
-    ]
+  loadChildren: () => import('./modules/acesso/acesso.module').then(m => m.AcessoModule)
+}, {
+  path: 'pessoa',
+  data: {
+    title: 'Menu',
+    description: 'Pessoa'
   },
-  {
-    path: 'pessoa',
-    data: {
-      title: 'Pessoa'
-    },
-    children: [
-      {
-        path: 'pessoa-fisica',
-        data: {
-          title: 'Pessoa Fisica'
-        },
-        component: PessoaFisicaComponent
-      }
-    ]
-  }
-];
+  loadChildren: () => import('./modules/pessoa/pessoa.module').then(m => m.PessoaModule)
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
