@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -14,6 +14,7 @@ import { PaginationService } from 'src/app/modules/services/architecture/page/pa
 import { PageDTO } from 'src/app/modules/shared/architecture/page/page.dto';
 import { SortingService } from 'src/app/modules/services/architecture/sort/sorting.service';
 import { SortColumnDTO } from 'src/app/modules/shared/architecture/sort/sortcolumn.dto';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-list',
@@ -24,24 +25,21 @@ export class ListComponent implements OnInit {
 
   @Input()
   service: CrudService<any, number>;
-
   @Input()
   sortColumns: Array<SortColumnDTO>;
-
   @Input()
   columns: Array<ColumnDTO>;
-
   @Input()
   filterField: Array<string>;
-
   @Input()
   disableEdit = false;
-
   @Input()
   disableRemove = false;
-
   @Input()
   pageOptions = [10, 25, 50, 100, 200];
+
+  @Output()
+  isListing = new EventEmitter();
 
   @ViewChild('dataTable')
   table: Table;
@@ -64,11 +62,18 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('OnInit list');
     this.getData();
     this.primengConfig.ripple = true;
+    this.isListing.emit('true');
+  }
+
+  goForm(): void {
+    this.isListing.emit('false');
   }
 
   goBack(): void {
+    this.isListing.emit('true');
     this.location.back();
   }
 

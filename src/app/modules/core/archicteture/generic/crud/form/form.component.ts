@@ -18,6 +18,7 @@ export class FormComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
+    console.log("OnInit form");
   }
 
   goBack(): void {

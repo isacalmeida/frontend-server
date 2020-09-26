@@ -2,7 +2,7 @@
 <div class="card">
     <p-toolbar styleClass="p-mb-4">
         <ng-template pTemplate="left">
-			<button pButton pRipple icon="pi pi-plus" class="p-button-info p-button-raised" [routerLink]="['novo']" label="Novo" title="Novo"></button>
+			<button pButton pRipple icon="pi pi-plus" class="p-button-info p-button-raised" [routerLink]="['novo']" (click)="goForm()" label="Novo" title="Novo"></button>
 		</ng-template>
 		<ng-template pTemplate="right">
 			<button pButton icon="pi pi-arrow-left" class="p-button-text p-button-raised" (click)="goBack()" label="Voltar" title="Voltar"></button>

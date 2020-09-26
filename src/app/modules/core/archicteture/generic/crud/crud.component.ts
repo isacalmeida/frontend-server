@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { CrudService } from 'src/app/modules/services/architecture/crud/crud.service';
 import { SortColumnDTO } from 'src/app/modules/shared/architecture/sort/sortcolumn.dto';
 import { ColumnDTO } from 'src/app/modules/shared/architecture/table/column.dto';
@@ -25,11 +28,22 @@ export class CrudComponent implements OnInit {
   @Input()
   pageOptions = [10, 25, 50, 100, 200];
 
-  isFormulario = false;
+  isListing: boolean;
+  isFormulario: boolean;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.router);
+    console.log(this.location);
+    this.isListing = true;
+    this.isFormulario = false;
   }
 
+  setListing(event: EventEmitter) {
+    console.log(event);
+  }
 }
