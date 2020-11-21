@@ -1,0 +1,26 @@
+<div *ngIf="isFormulario">
+	<app-form 
+		[detailService]="service"
+		[acesso]="acesso"
+		[isDetail]="isDetail"
+		[idDetail]="idDetail"
+		[auditable]="auditable"
+		[persistable]="persistable"
+		[formConfig]="formConfig"
+		[masterDetail]="masterDetail"
+		(isFormulario)="setFormulario($event)"
+	></app-form>
+</div>
+<div *ngIf="isListing">
+	<app-simple-list 
+		[acesso]="acesso"
+		[detailService]="service"
+		[isDetail]="isDetail"
+		[columns]="columns"
+		[disableEdit]="disableEdit"
+		[pageOptions]="pageOptions"
+		[disableRemove]="disableRemove"
+		(isListing)="setListing($event)"
+		(idDetail)="setIdDetail($event)"
+	></app-simple-list>
+</div>

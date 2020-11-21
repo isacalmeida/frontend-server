@@ -1,7 +1,0 @@
-{
-    "/pessoa-service/*": {
-        "target": "http://ec2-34-206-175-192.compute-1.amazonaws.com:8770/pessoa-service",
-        "secure": false,
-        "logLevel": "debug"
-    }
-}

@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./target/out-tsc/app",
+    "types": []
+  },
+  "angularCompilerOptions": {
+    "enableIvy": false
+  },
+  "files": [
+    "src/main/webapp/main.ts",
+    "src/main/webapp/polyfills.ts"
+  ],
+  "include": [
+    "src/main/webapp/**/*.d.ts"
+  ]
+}

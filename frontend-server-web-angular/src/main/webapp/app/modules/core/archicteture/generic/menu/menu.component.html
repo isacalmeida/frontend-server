@@ -1,0 +1,17 @@
+<p-card>
+    <div class="row">
+        <div class="col-md-6" *ngFor="let menu of menus">
+            <a [routerLink]="[menu.url]">
+                <div class="small-box bg-gradient-success">
+                    <div class="inner">
+                        <h3>{{menu.titulo}}</h3>
+                        <p>{{menu.descricao}}</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas {{menu.icone}}"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</p-card>

@@ -1,0 +1,16 @@
+<p-messages [value]="msgs"></p-messages>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="form-group p-pr-2">
+                <p-dropdown [options]="configurarServiceList" [(ngModel)]="selecionado" placeholder="Selecione um serviço"></p-dropdown>
+            </div>
+            <div class="form-group">
+                <button pButton pRipple label="Realizar" icon="pi pi-check" class="p-button-success p-mr-2" (click)="realizarMigration()"></button>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" *ngIf="loading">
+        <i class="fas fa-4x fa-spinner fa-spin"></i>
+    </div>
+</div>

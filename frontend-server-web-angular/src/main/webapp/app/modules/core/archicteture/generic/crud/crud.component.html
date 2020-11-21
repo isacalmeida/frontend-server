@@ -1,0 +1,10 @@
+<div *ngIf="isFormulario">
+    <app-form [model]="model" [service]="service" [auditable]="auditable" [persistable]="persistable"
+        [formConfig]="formConfig" [masterDetail]="masterDetail" [detailFormConfig]="detailFormConfig"
+        [acesso]="acesso" (isFormulario)="setFormulario($event)"></app-form>
+</div>
+<div *ngIf="isListing">
+    <app-paged-list [service]="service" [columns]="columns" [sortColumns]="sortColumns" [filterField]="filterField"
+        [disableEdit]="disableEdit" [pageOptions]="pageOptions" [selectable]="isSelectable"
+        [disableRemove]="disableRemove" [acesso]="acesso" (isListing)="setListing($event)"></app-paged-list>
+</div>

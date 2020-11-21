@@ -1,0 +1,22 @@
+{
+    "/acesso-service/*": {
+        "target": "http://localhost:8770/acesso-service",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/operacao-service/*": {
+        "target": "http://localhost:8770/operacao-service",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/pessoa-service/*": {
+        "target": "http://localhost:8770/pessoa-service",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/transicao-service/*": {
+        "target": "http://localhost:8770/transicao-service",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

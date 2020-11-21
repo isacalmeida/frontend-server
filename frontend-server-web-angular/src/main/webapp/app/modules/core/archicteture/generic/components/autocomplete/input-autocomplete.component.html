@@ -1,0 +1,32 @@
+<div>
+    <label [attr.for]="cid">{{ label + asterix }}</label>
+    <div [id]="cid" class="p-d-flex p-flex-sm-row">
+        <div class="p-inputgroup">
+            <input pInputText *ngIf="1 !== 1" [(ngModel)]="value">
+            <input
+                type="text"
+                [disabled]="true"
+                (blur)="onBlur.next()"
+                (focus)="onFocus.next()"
+                value="{{getDescricaoValue()}}"
+                class="form-control"
+                pInputText>
+            <button type="button" pButton pRipple icon="pi pi-search" class="form-control p-button-raised" (click)="showModalDialog()"></button>
+        </div>
+    </div>
+</div>
+<p-dialog header="{{tituloSeletor}}" [(visible)]="displayModal" [modal]="true" [style]="{width: '70vw'}" [baseZIndex]="10000" 
+    [draggable]="false" [resizable]="false" [closable]="false">
+    <app-paged-list 
+        [service]="service"
+        [sortColumns]="sortColumns"
+        [columns]="columns"
+        [filterField]="filterField"
+        [selectable]="isSelectable"
+        (selectedValue)="setSelectedValue($event)"
+        (unselectedValue)="setUnselectedValue($event)">
+    </app-paged-list>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="confirmarRegistro()" label="Confirmar" styleClass="p-button-primary"></p-button>
+    </ng-template>
+</p-dialog>

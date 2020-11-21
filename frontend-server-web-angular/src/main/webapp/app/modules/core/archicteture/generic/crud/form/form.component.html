@@ -1,0 +1,138 @@
+<p-messages [value]="msgs"></p-messages>
+<div class="card">
+	<div class="card-header">
+		<p-toolbar>
+			<ng-template pTemplate="left">
+			</ng-template>
+			<ng-template pTemplate="right">
+				<button pButton icon="pi pi-arrow-left" class="p-button-text p-button-raised" (click)="goBack()" label="Voltar" title="Voltar"></button>
+			</ng-template>
+		</p-toolbar>
+	</div>
+	<form>
+		<div class="card-body">
+			<div class="card">
+				<div class="card-header">
+					<div class="row">
+						<div class="form-group col-md-{{field.size}}" *ngFor="let field of formConfig">
+							<div [ngSwitch]="field.type">
+								<div *ngSwitchCase="'text'">
+									<app-input-text
+										[cid]="field.attribute"
+										[label]="field.label"
+										[name]="field.attribute"
+										[(ngModel)]="model[field.attribute]">
+									</app-input-text>
+								</div>
+								<div *ngSwitchCase="'mask'">
+									<app-input-mask
+										[cid]="field.attribute"
+										[mask]="field.mask"
+										[label]="field.label"
+										[unmask]="field.unmaks"
+										[name]="field.attribute"
+										(doComplete)="field.doComplete($event)"
+										[(ngModel)]="model[field.attribute]">
+									</app-input-mask>
+								</div>
+								<div *ngSwitchCase="'datetime'">
+									<app-input-date
+										[cid]="field.attribute"
+										[label]="field.label"
+										[readonly]="true"
+										[name]="field.attribute"
+										[(ngModel)]="model[field.attribute]">
+									</app-input-date>
+								</div>
+								<div *ngSwitchCase="'switch'">
+									<app-input-switch 
+										[cid]="field.attribute"
+										[label]="field.label"
+										[required]="true"
+										[name]="field.attribute"
+										[(ngModel)]="model[field.attribute]">
+									</app-input-switch>
+								</div>
+								<div *ngSwitchCase="'autocomplete'">
+									<app-input-autocomplete
+										[cid]="field.attribute"
+										[label]="field.label"
+										[name]="field.attribute"
+										[service]="field.service"
+										[codigoName]="field.codigoName"
+										[tituloSeletor]="field.tituloSeletor"
+										[descricaoName]="field.descricaoName"
+										[descricaoExtraName]="field.descricaoExtraName"
+										(onSelect)="field.onSelect($event)"
+										[(ngModel)]="model[field.attribute]">
+									</app-input-autocomplete>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="row" *ngIf="auditable && !novo && isDetail === false">
+						<div class="form-group col-md-{{field.size}}" *ngFor="let field of auditFields">
+							<div [ngSwitch]="field.type">
+								<div *ngSwitchCase="'text'">
+									<app-input-text
+										[cid]="field.attribute"
+										[label]="field.label"
+										[readonly]="true"
+										[name]="field.attribute"
+										[(ngModel)]="model[field.attribute]">
+									</app-input-text>
+								</div>
+								<div *ngSwitchCase="'datetime'">
+									<app-input-date
+										[cid]="field.attribute"
+										[label]="field.label"
+										[readonly]="true"
+										[name]="field.attribute"
+										[(ngModel)]="model[field.attribute]">
+									</app-input-date>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" *ngIf="persistable && !novo && isDetail === false">
+						<div class="form-group col-md-{{field.size}}" *ngFor="let field of persistFields">
+							<div [ngSwitch]="field.type">
+								<div *ngSwitchCase="'switch'">
+									<app-input-switch 
+										[cid]="field.attribute"
+										[label]="field.label"
+										[required]="true"
+										[name]="field.attribute"
+										[(ngModel)]="model[field.attribute]">
+									</app-input-switch>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer">
+					<button *ngIf="acesso.alterar" pButton pRipple label="Salvar" icon="pi pi-check" class="p-button-success p-mr-2" (click)="salvar()"></button>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer" *ngIf="!novo && masterDetail">
+			<p-tabView>
+				<p-tabPanel header="{{detail.tabHeader}}" *ngFor="let detail of detailFormConfig">
+					<ng-template pTemplate="content">
+						<app-detail
+							[acesso]="acesso"
+							[service]="detail.service"
+							[columns]="detail.columns"
+							[formConfig]="detail.formConfig">
+						</app-detail>
+					</ng-template>
+				</p-tabPanel>
+			</p-tabView>
+		</div>
+	</form>
+	<div class="overlay" *ngIf="loading">
+		<i class="fas fa-4x fa-spinner fa-spin"></i>
+	</div>
+</div>

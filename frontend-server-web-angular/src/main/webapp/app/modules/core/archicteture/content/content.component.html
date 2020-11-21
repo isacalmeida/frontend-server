@@ -1,0 +1,12 @@
+<section *ngIf="header || description" class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>{{getTitleWithTag()}}</h1>
+            </div>
+            <div class="col-sm-6">
+                <app-breadcrumb></app-breadcrumb>
+            </div>
+        </div>
+    </div>
+</section>
