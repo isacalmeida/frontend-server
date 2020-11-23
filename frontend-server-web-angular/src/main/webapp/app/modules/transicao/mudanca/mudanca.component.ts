@@ -42,6 +42,7 @@ export class MudancaComponent implements OnInit {
         public mudancaItemConfiguracaoService: MudancaItemConfiguracaoService) { }
 
     ngOnInit(): void {
+        this.model = new MudancaDTO();
         this.preencherColumns();
         this.preencherSortColumns();
         this.preencherFiltros();
@@ -51,14 +52,14 @@ export class MudancaComponent implements OnInit {
     preencherForm() {
         this.formConfig = [
             new FormDTO("idMudanca", "Id", "hidden", 12),
+            new FormDTO("protocoloPessoa", "Protocolo Pessoa", "hidden", 12),
             new FormDTO("descricao", "Descrição", "text", 8),
             new FormDTO("statusMudanca", "Status", "autocomplete", 4, { service: this.statusMudancaService }),
-            new FormDTO("dataProposta", "Data Proposta", "datetime", 4),
-            new FormDTO("prioridade", "Prioridade", "autocomplete", 4, { service: this.prioridadeService }),
-            new FormDTO("impacto", "Impacto", "autocomplete", 4, { service: this.impactoService }),
+            new FormDTO("dataProposta", "Data Proposta", "datetime", 6),
             new FormDTO("pessoaFisica", "Responsável", "autocomplete", 6, { service: this.pessoaFisicaService, descricaoName: "nomeCompleto", 
                     onSelect: this.onSelectPessoaResponsavel }),
-            new FormDTO("problema", "Problema", "autocomplete", 6, { service: this.problemaService }),
+            new FormDTO("prioridade", "Prioridade", "autocomplete", 6, { service: this.prioridadeService }),
+            new FormDTO("impacto", "Impacto", "autocomplete", 6, { service: this.impactoService }),
             new FormDTO("atividades", "Atividades", "text", 12),
             new FormDTO("planoRetorno", "Plano de Retorno", "text", 12),
             new FormDTO("isAutorizado", "Autorizado", "switch", 2, { defaultValue: false }),

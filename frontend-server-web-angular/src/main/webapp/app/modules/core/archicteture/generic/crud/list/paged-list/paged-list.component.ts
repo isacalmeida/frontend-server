@@ -89,12 +89,10 @@ export class PagedListComponent implements OnInit {
             this.msgs = [{ severity: 'error', summary: 'Erro', detail: 'Você não possui permissão para acessar o programa!' }];
             return;
         }
-        console.log(this.acesso);
 
         this.disableEdit = !this.acesso.alterar;
         this.disableRemove = !this.acesso.remover;
         this.disableCreate = !this.acesso.criar;
-        console.log(this.disableCreate);
     }
 
     onRowSelect(event: any) {

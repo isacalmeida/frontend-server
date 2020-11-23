@@ -103,7 +103,7 @@ export class InputAutocompleteComponent extends AbstractInputComponent implement
     }
 
     getDescricao(item: any): string {
-        if(item === undefined) {
+        if(item === undefined || item.id === undefined) {
             return "";
         }
 

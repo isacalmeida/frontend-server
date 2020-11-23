@@ -38,6 +38,7 @@ export class ItemConfiguracaoComponent implements OnInit {
         public pessoaJuridicaService: PessoaJuridicaService) { }
 
     ngOnInit(): void {
+        this.model = new ItemConfiguracaoDTO();
         this.preencherColumns();
         this.preencherSortColumns();
         this.preencherFiltros();
@@ -47,6 +48,8 @@ export class ItemConfiguracaoComponent implements OnInit {
     preencherForm() {
         this.formConfig = [
             new FormDTO("idItemConfiguracao", "Id", "hidden", 12),
+            new FormDTO("protocoloPessoaFornecedor", "Id", "hidden", 12),
+            new FormDTO("protocoloPessoaResponsavel", "Id", "hidden", 12),
             new FormDTO("descricao", "Descrição", "text", 6),
             new FormDTO("modelo", "Modelo", "text", 6),
             new FormDTO("numeroSerie", "Número de Série", "text", 6),

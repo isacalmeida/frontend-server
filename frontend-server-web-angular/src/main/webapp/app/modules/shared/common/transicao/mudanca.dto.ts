@@ -18,5 +18,4 @@ export class MudancaDTO extends PersistableDTO {
     protocoloProblema: number;
     atividades: string;
     planoRetorno: string;
-    mudancaItemConfiguracao: Array<MudancaItemConfiguracaoDTO>;
 }

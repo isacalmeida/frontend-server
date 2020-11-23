@@ -8,7 +8,4 @@ export class PessoaDTO extends PersistableDTO {
     isCliente: boolean;
     isFornecedor: boolean;
     isFuncionario: boolean;
-    contatos: Array<ContatoDTO>;
-    enderecos: Array<EnderecoDTO>;
-    tipoDocumentoPessoa: Array<TipoDocumentoPessoaDTO>;
 }
